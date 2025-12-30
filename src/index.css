@@ -1,0 +1,6 @@
+@import "tailwindcss";
+body {
+  background-image: url("/images/pexels-nicobecker-5913653.jpg");
+  background-size: cover;
+  background-position: center;
+}
