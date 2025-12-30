@@ -1,12 +1,18 @@
-import React from 'react'
-import QrGenerator from "./components/QrGenerator"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import Login from "./pages/Login"
+import QrGenerator from "./Pages/QrGenerator" // your existing QR page
+import QRStickerGenerator from "./Pages/QRStickerGenerator"
 
-const App = () => {
+export default function App() {
   return (
-    <div>
-      <QrGenerator/>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<QrGenerator />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/QRStickerGenerator" element={<QRStickerGenerator />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App
