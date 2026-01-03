@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Login from "../Pages/Login"
+import Login from "../Pages/LoginPage"
 import QRStickerGenerator from "../Pages/QRStickerGenerator"
 import QrGenerator from "../Pages/QrGenerator"
 const Navbar = () => {

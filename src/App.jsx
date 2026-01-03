@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
-import Login from "./pages/Login"
+import Login from "./pages/LoginPage"
 import QrGenerator from "./Pages/QrGenerator" // your existing QR page
 import QRStickerGenerator from "./Pages/QRStickerGenerator"
 
