@@ -13,7 +13,6 @@ const Navbar = () => {
           <h1 className="text-lg font-bold text-white tracking-wide">
             QR<span className="text-blue-300">Gen</span>
           </h1>
-
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-white/80">
             <a href="#" className="hover:text-white transition"><Link to="/">Home</Link></a>
