@@ -5,18 +5,18 @@ import { supabase } from "../data/supabase";
 const Login = () => {
 
   const handleGoogleLogin = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: 'https://easy-qr.praxire.com',
-      },
-    });
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: "https://easy-qr.praxire.com",
+    },
+  })
 
-    if (error) {
-      console.error(error);
-      alert("Google login failed");
-    }
-  };
+  if (error) {
+    console.error(error)
+    alert("Google login failed")
+  }
+}
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center px-4">
