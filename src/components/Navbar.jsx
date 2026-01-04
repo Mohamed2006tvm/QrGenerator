@@ -16,7 +16,7 @@ const Navbar = () => {
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-white/80">
             <a href="#" className="hover:text-white transition"><Link to="/">Home</Link></a>
-            <a href="#" className="hover:text-white transition"><Link to="/QRStickerGenerator">Qr Sticker</Link></a>
+            {/* <a href="#" className="hover:text-white transition"><Link to="/QRStickerGenerator">Qr Sticker</Link></a> */}
             {/* <a href="#" className="hover:text-white transition">Pricing</a> */}
           </div>
 

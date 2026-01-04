@@ -11,7 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<QrGenerator />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/QRStickerGenerator" element={<QRStickerGenerator />} />
+        {/* <Route path="/QRStickerGenerator" element={<QRStickerGenerator />} /> */}
       </Routes>
     </BrowserRouter>
   )
