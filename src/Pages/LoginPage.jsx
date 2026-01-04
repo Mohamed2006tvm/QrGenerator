@@ -1,41 +1,41 @@
-import React from "react"
-import { FcGoogle } from "react-icons/fc"
-import { supabase } from "../data/supabase"
+import React from "react";
+import { FcGoogle } from "react-icons/fc";
+import { supabase } from "../data/supabase";
 
 const Login = () => {
 
-  const handlegooglelogin = async () => {
+  const handleGoogleLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${window.location.origin}/`
-      }
-    })
+        redirectTo: 'https://easy-qr.praxire.com/login',
+      },
+    });
 
     if (error) {
-      console.error(error)
-      alert("Google login failed")
+      console.error(error);
+      alert("Google login failed");
     }
-  }
-
-
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center px-4">
-
+      
       <div className="w-full max-w-md rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 shadow-2xl text-center">
-
+        
         {/* Title */}
         <h1 className="text-3xl font-extrabold text-white">
           Welcome to QuickQR
         </h1>
+
         <p className="mt-2 text-sm text-white/70">
           Generate, manage & share QR codes easily
         </p>
 
-        {/* Google Button */}
+        {/* Google Login Button */}
         <div className="mt-10">
-          <button onClick={handlegooglelogin}
+          <button
+            onClick={handleGoogleLogin}
             className="flex w-full items-center justify-center gap-3 rounded-full bg-white py-3 text-sm font-semibold text-black transition-all hover:scale-[1.03] hover:bg-black hover:text-white"
           >
             <FcGoogle className="text-xl bg-white rounded-full" />
@@ -53,7 +53,7 @@ const Login = () => {
 
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
