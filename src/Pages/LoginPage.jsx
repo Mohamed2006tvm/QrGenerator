@@ -8,7 +8,7 @@ const Login = () => {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: "https://easy-qr.praxire.com",
+      redirectTo: "https://easy-qr.online",
     },
   })
 
