@@ -1,7 +1,25 @@
 import React from "react"
 import { FcGoogle } from "react-icons/fc"
+import { supabase } from "../data/supabase"
 
 const Login = () => {
+
+  const handlegooglelogin = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/`
+      }
+    })
+
+    if (error) {
+      console.error(error)
+      alert("Google login failed")
+    }
+  }
+
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center px-4">
 
@@ -17,7 +35,7 @@ const Login = () => {
 
         {/* Google Button */}
         <div className="mt-10">
-          <button
+          <button onClick={handlegooglelogin}
             className="flex w-full items-center justify-center gap-3 rounded-full bg-white py-3 text-sm font-semibold text-black transition-all hover:scale-[1.03] hover:bg-black hover:text-white"
           >
             <FcGoogle className="text-xl bg-white rounded-full" />
