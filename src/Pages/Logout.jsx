@@ -15,6 +15,7 @@ const Logout = () => {
     alert("Error logging out")
   } else {
     navigate("/")
+    alert('Logout successfull')
   }
 }
 

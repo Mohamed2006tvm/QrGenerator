@@ -11,12 +11,14 @@ const Login = () => {
     options: {
       redirectTo: "https://easy-qr.praxire.com",
     },
+    
   })
 
   if (error) {
     console.error(error)
     alert("Google login failed")
-  }
+  }else
+    alert('Login Successfull')
 }
 
   return (
