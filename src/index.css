@@ -1,9 +1,14 @@
 @import "tailwindcss";
 body {
-  background: radial-gradient(1200px 700px at 20% 0%, rgba(255, 255, 255, 0.07), transparent 55%),
-    radial-gradient(900px 600px at 80% 30%, rgba(255, 255, 255, 0.05), transparent 60%),
-    linear-gradient(180deg, #0b0d10 0%, #07090c 100%);
+  background:
+    radial-gradient(1200px 700px at 20% 0%, rgba(255, 255, 255, 0.06), transparent 55%),
+    radial-gradient(900px 600px at 80% 30%, rgba(255, 255, 255, 0.04), transparent 60%),
+    linear-gradient(180deg, #1a1a1a 0%, #111111 100%);
   color: #e5e7eb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+
+
