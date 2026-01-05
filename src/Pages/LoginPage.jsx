@@ -2,6 +2,7 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import { supabase } from "../data/supabase";
 import Seo from "../components/Seo";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 
@@ -55,9 +56,9 @@ const Login = () => {
         {/* Terms */}
         <p className="mt-6 text-xs text-white/50">
           By continuing, you agree to our
-          <span className="mx-1 underline cursor-pointer">Terms</span>
+          <Link to="/terms" className="mx-1 underline cursor-pointer">Terms & Service</Link>
           &
-          <span className="ml-1 underline cursor-pointer">Privacy Policy</span>
+          <Link to="/privacy" className="ml-1 underline cursor-pointer">Privacy Policy</Link>
         </p>
 
       </div>
