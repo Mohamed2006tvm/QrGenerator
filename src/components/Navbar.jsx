@@ -7,17 +7,19 @@ const Navbar = () => {
 
   const [user, setUser] = useState(null)
 
-  useEffect(()=>{
-    const getUser = async ()=>{
-      const {data,error} = await supabase.auth.getUser()
+  useEffect(() => {
+    const getUser = async () => {
+      const { data, error } = await supabase.auth.getUser()
 
-      if(!error){
+      if (!error) {
         setUser(data.user)
         console.log(data.user)
       }
     }
     getUser()
-  },[])
+  }, [])
+
+  const avatar = user?.user_metadata?.picture
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
@@ -31,18 +33,25 @@ const Navbar = () => {
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-white/80">
             <a href="#" className="hover:text-white transition"><Link to="/">Home</Link></a>
-            
+
           </div>
 
           {/* Auth */}
           <div className="flex items-center gap-3">
-            
-            {user?<Logout/>: (<button className="rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-black hover:scale-[1.03] hover:bg-gray-800 hover:text-white transition">
-              <Link to="/login">Login</Link>
-            </button> )}
+            {avatar && (
+              <img
+                src={avatar}
+                alt="User Avatar"
+                className="w-9 h-9 rounded-full border border-white"
+              />
+            )}
 
-            
-           
+            {user ? (<Logout />) : (<button className="rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-black hover:scale-[1.03] hover:bg-gray-800 hover:text-white transition">
+              <Link to="/login">Login</Link>
+            </button>)}
+
+
+
           </div>
 
         </div>
