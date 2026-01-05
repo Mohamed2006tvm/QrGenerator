@@ -1,6 +1,7 @@
 import { useState } from "react"
 import QRCode from "qrcode"
 import Seo from "../components/Seo"
+import Footer from "../components/Footer"
 
 export default function App() {
   const [text, setText] = useState("")
@@ -76,7 +77,7 @@ export default function App() {
           </div>
 
           {/* Output Card */}
-          <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 text-white shadow-[0_18px_50px_rgba(0,0,0,0.45)] flex flex-col items-center justify-center">
+          <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 text-white shadow-[0_18px_50px_rgba(0,0,0,0.45)] flex flex-col items-center justify-center sm:mb-0 mb-30">
             <h2 className="text-lg font-semibold mb-6">
               Your QR Code
             </h2>
@@ -104,6 +105,7 @@ export default function App() {
           </div>
 
         </div>
+        <Footer/>
       </div>
     </div>
   )

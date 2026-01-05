@@ -7,14 +7,17 @@ const Logout = () => {
 
     const navigate = useNavigate()
 
-    const handleLogout = async ()=>{
-        const {error} =await supabase.auth.signOut()
+    const handleLogout = async () => {
+  const { error } = await supabase.auth.signOut()
 
-        if(error)
-            alert('Error in logout')
-        else
-            navigate('/')
-    }
+  if (error) {
+    console.error(error)
+    alert("Error logging out")
+  } else {
+    navigate("/")
+  }
+}
+
 
 
   return (

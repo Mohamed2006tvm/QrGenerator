@@ -8,15 +8,23 @@ const Navbar = () => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const getUser = async () => {
-      const { data, error } = await supabase.auth.getUser()
+  // initial session
+  supabase.auth.getSession().then(({ data }) => {
+    setUser(data.session?.user ?? null)
+  })
 
-      if (!error) {
-        setUser(data.user)
-      }
+  // listen for login/logout
+  const { data: listener } = supabase.auth.onAuthStateChange(
+    (_event, session) => {
+      setUser(session?.user ?? null)
     }
-    getUser()
-  }, [])
+  )
+
+  return () => {
+    listener.subscription.unsubscribe()
+  }
+}, [])
+
 
   const avatar = user?.user_metadata?.picture
 
