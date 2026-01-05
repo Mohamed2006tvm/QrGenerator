@@ -13,7 +13,6 @@ const Navbar = () => {
 
       if (!error) {
         setUser(data.user)
-        console.log(data.user)
       }
     }
     getUser()
@@ -24,15 +23,15 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mt-4 flex items-center justify-between rounded-full border border-white/20 bg-white/10 backdrop-blur-xl px-6 py-3 shadow-lg">
+        <div className="mt-4 flex items-center justify-between rounded-full border border-white/10 bg-black/40 backdrop-blur-xl px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
 
           {/* Logo */}
           <h1 className="text-lg font-bold text-white tracking-wide">
-            QR<span className="text-blue-300">Gen</span>
+            QR<span className="text-zinc-300">Gen</span>
           </h1>
           {/* Links */}
-          <div className="flex items-center gap-6 text-sm text-white/80">
-            <a href="#" className="hover:text-white transition"><Link to="/">Home</Link></a>
+          <div className="flex items-center gap-6 text-sm text-white/70">
+            <Link to="/" className="hover:text-white transition">Home</Link>
 
           </div>
 
@@ -42,13 +41,20 @@ const Navbar = () => {
               <img
                 src={avatar}
                 alt="User Avatar"
-                className="w-9 h-9 rounded-full border border-white"
+                className="w-9 h-9 rounded-full border border-white/15"
               />
             )}
 
-            {user ? (<Logout />) : (<button className="rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-black hover:scale-[1.03] hover:bg-gray-800 hover:text-white transition">
-              <Link to="/login">Login</Link>
-            </button>)}
+            {user ? (
+              <Logout />
+            ) : (
+              <Link
+                to="/login"
+                className="rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white hover:bg-white/15 transition"
+              >
+                Login
+              </Link>
+            )}
 
 
 
@@ -61,3 +67,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+

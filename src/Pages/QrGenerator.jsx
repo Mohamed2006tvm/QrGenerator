@@ -1,5 +1,6 @@
 import { useState } from "react"
 import QRCode from "qrcode"
+import Seo from "../components/Seo"
 
 export default function App() {
   const [text, setText] = useState("")
@@ -14,7 +15,7 @@ export default function App() {
       width: 220,
       margin: 2,
       color: {
-        dark: "#0f172a",
+        dark: "#111827",
         light: "#ffffff",
       },
     })
@@ -31,7 +32,12 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center px-4 pt-30 md:pt-10 ">
+    <div className="min-h-screen flex items-center justify-center px-4 pt-[7.5rem] md:pt-10">
+      <Seo
+        title="QRGen — QR Code Generator"
+        description="Generate and download high-quality QR codes instantly. Create QR codes for links, text, and more."
+        path="/"
+      />
       <div className="w-full max-w-5xl">
 
         {/* Header */}
@@ -39,8 +45,8 @@ export default function App() {
           <h1 className="text-4xl font-extrabold text-white tracking-wide">
             QR Code Generator
           </h1>
-          <p className="text-white/80 mt-2">
-            Generate & download QR codes instantly 🚀
+          <p className="text-white/70 mt-2">
+            Generate & download QR codes instantly
           </p>
         </div>
 
@@ -48,7 +54,7 @@ export default function App() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
           {/* Input Card */}
-          <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 text-white shadow-xl">
+          <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 text-white shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
             <h2 className="text-lg font-semibold mb-6">
               Enter Your Text / URL
             </h2>
@@ -58,19 +64,19 @@ export default function App() {
               placeholder="https://example.com"
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="w-full rounded-full border border-white/30 bg-transparent px-5 py-3 text-sm text-white placeholder-white/60 outline-none focus:border-white"
+              className="w-full rounded-full border border-white/10 bg-black/30 px-5 py-3 text-sm text-white placeholder-white/40 outline-none focus:border-white/25"
             />
 
             <button
               onClick={generateQrCode}
-              className="mt-6 w-full rounded-full bg-white py-3 text-sm font-semibold text-black transition hover:scale-[1.03] hover:bg-black hover:text-white"
+              className="mt-6 w-full rounded-full bg-white/90 py-3 text-sm font-semibold text-black transition hover:bg-white"
             >
               {loading ? "Generating..." : "Generate QR Code"}
             </button>
           </div>
 
           {/* Output Card */}
-          <div className="rounded-3xl border border-white/20 bg-white/10 backdrop-blur-xl p-8 text-white shadow-xl flex flex-col items-center justify-center">
+          <div className="rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 text-white shadow-[0_18px_50px_rgba(0,0,0,0.45)] flex flex-col items-center justify-center">
             <h2 className="text-lg font-semibold mb-6">
               Your QR Code
             </h2>
@@ -85,7 +91,7 @@ export default function App() {
 
                 <button
                   onClick={downloadQrCode}
-                  className="mt-6 rounded-full border border-white px-6 py-2 text-sm transition hover:bg-white hover:text-black"
+                  className="mt-6 rounded-full border border-white/20 bg-white/5 px-6 py-2 text-sm transition hover:bg-white/10"
                 >
                   Download PNG
                 </button>
