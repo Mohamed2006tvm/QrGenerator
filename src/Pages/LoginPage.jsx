@@ -11,7 +11,7 @@ const Login = () => {
     options: {
       redirectTo: "https://easy-qr.praxire.com",
     },
-    
+     
     
   })
 
