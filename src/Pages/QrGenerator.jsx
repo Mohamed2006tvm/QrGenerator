@@ -34,8 +34,6 @@ export default function App() {
   const downloadQrCode = () => {
     
     if(!user){
-      console.log("Return to login because you need to login before download")
-      alert("success");
       navigate('login')
       return
     }
