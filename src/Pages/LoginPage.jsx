@@ -35,7 +35,7 @@ const Login = () => {
         
         {/* Title */}
         <h1 className="text-3xl font-extrabold text-white">
-          Welcome to QuickQR
+          Welcome to QRGen
         </h1>
 
         <p className="mt-2 text-sm text-white/60">
