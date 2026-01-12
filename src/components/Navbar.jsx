@@ -1,30 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import Logout from "../Pages/Logout"
-import { supabase } from "../data/supabase"
+import { userData } from "../App"
 
 const Navbar = () => {
 
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-  // initial session
-  supabase.auth.getSession().then(({ data }) => {
-    setUser(data.session?.user ?? null)
-  })
-
-  // listen for login/logout
-  const { data: listener } = supabase.auth.onAuthStateChange(
-    (_event, session) => {
-      setUser(session?.user ?? null)
-    }
-  )
-
-  return () => {
-    listener.subscription.unsubscribe()
-  }
-}, [])
-
+  const {user} = useContext(userData)
 
   const avatar = user?.user_metadata?.picture
 

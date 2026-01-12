@@ -1,12 +1,18 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import QRCode from "qrcode"
 import Seo from "../components/Seo"
 import Footer from "../components/Footer"
+import { userData } from "../App"
+import { useNavigate } from "react-router-dom"
+
 
 export default function App() {
   const [text, setText] = useState("")
   const [qr, setQr] = useState("")
   const [loading, setLoading] = useState(false)
+
+  const {user} = useContext(userData)
+  const navigate = useNavigate()
 
   const generateQrCode = async () => {
     if (!text) return
@@ -26,9 +32,17 @@ export default function App() {
   }
 
   const downloadQrCode = () => {
+    
+    if(!user){
+      console.log("Return to login because you need to login before download")
+      alert("success");
+      navigate('login')
+      return
+    }
+
     const link = document.createElement("a")
     link.href = qr
-    link.download = "qr-code.png"
+    link.download = "qr-code.jpg"
     link.click()
   }
 
