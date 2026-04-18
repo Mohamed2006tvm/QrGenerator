@@ -48,35 +48,34 @@ export default function App() {
       if (logo) {
         const ctx = canvas.getContext("2d")
         const img = new Image()
-        img.src = logo
         
-        await new Promise((resolve) => {
+        await new Promise((resolve, reject) => {
           img.onload = () => {
-            const logoSize = canvas.width * 0.22 // Slightly larger logo
-            const x = (canvas.width - logoSize) / 2
-            const y = (canvas.height - logoSize) / 2
+            const logoSize = canvas.width * 0.22
+            const x = canvas.width / 2
+            const y = canvas.height / 2
+            const radius = logoSize / 2
 
-            // Rounded corner background for logo
-            const padding = 15
-            ctx.fillStyle = "#ffffff"
-            // Draw a rounded rectangle for the logo background
-            const r = 10
+            // Draw circular white background
+            ctx.save()
             ctx.beginPath()
-            ctx.moveTo(x - padding + r, y - padding)
-            ctx.lineTo(x + logoSize + padding - r, y - padding)
-            ctx.quadraticCurveTo(x + logoSize + padding, y - padding, x + logoSize + padding, y - padding + r)
-            ctx.lineTo(x + logoSize + padding, y + logoSize + padding - r)
-            ctx.quadraticCurveTo(x + logoSize + padding, y + logoSize + padding, x + logoSize + padding - r, y + logoSize + padding)
-            ctx.lineTo(x - padding + r, y + logoSize + padding)
-            ctx.quadraticCurveTo(x - padding, y + logoSize + padding, x - padding, y + logoSize + padding - r)
-            ctx.lineTo(x - padding, y - padding + r)
-            ctx.quadraticCurveTo(x - padding, y - padding, x - padding + r, y - padding)
-            ctx.closePath()
+            ctx.arc(x, y, radius + 15, 0, Math.PI * 2)
+            ctx.fillStyle = "#ffffff"
             ctx.fill()
+            ctx.restore()
 
-            ctx.drawImage(img, x, y, logoSize, logoSize)
+            // Draw circular clipped logo
+            ctx.save()
+            ctx.beginPath()
+            ctx.arc(x, y, radius, 0, Math.PI * 2)
+            ctx.clip()
+            ctx.drawImage(img, x - radius, y - radius, logoSize, logoSize)
+            ctx.restore()
+            
             resolve()
           }
+          img.onerror = reject
+          img.src = logo
         })
       }
 
