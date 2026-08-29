@@ -1,9 +1,7 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import QRCode from "qrcode"
 import Seo from "../components/Seo"
 import Footer from "../components/Footer"
-import { userData } from "../App"
-import { useNavigate } from "react-router-dom"
 
 
 export default function App() {
@@ -11,9 +9,6 @@ export default function App() {
   const [qr, setQr] = useState("")
   const [loading, setLoading] = useState(false)
   const [logo, setLogo] = useState(null)
-
-  const {user} = useContext(userData)
-  const navigate = useNavigate()
 
   const handleLogoUpload = (e) => {
     const file = e.target.files[0]
@@ -88,12 +83,6 @@ export default function App() {
   }
 
   const downloadQrCode = () => {
-    
-    if(!user){
-      navigate('login')
-      return
-    }
-
     const link = document.createElement("a")
     link.href = qr
     link.download = "qr-code.jpg"

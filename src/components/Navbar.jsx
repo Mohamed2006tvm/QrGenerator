@@ -1,14 +1,7 @@
-import React, { useContext, useEffect, useState } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
-import Logout from "../Pages/Logout"
-import { userData } from "../App"
 
 const Navbar = () => {
-
-  const {user} = useContext(userData)
-
-  const avatar = user?.user_metadata?.picture
-
   return (
     <nav className="fixed top-0 left-0 w-full z-50">
       <div className="mx-auto max-w-7xl px-6">
@@ -21,32 +14,6 @@ const Navbar = () => {
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-white/70">
             <Link to="/" className="hover:text-white transition">Home</Link>
-
-          </div>
-
-          {/* Auth */}
-          <div className="flex items-center gap-3">
-            {avatar && (
-              <img
-                src={avatar}
-                alt="User Avatar"
-                className="w-9 h-9 rounded-full border border-white/15"
-              />
-            )}
-
-            {user ? (
-              <Logout />
-            ) : (
-              <Link
-                to="/login"
-                className="rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white hover:bg-white/15 transition"
-              >
-                Login
-              </Link>
-            )}
-
-
-
           </div>
 
         </div>
